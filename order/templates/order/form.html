@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block script %}
+<script>
+    {% include "order/form.js" %}
+
+</script>
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class="card">
+    <div class="card-header">
+        <strong>Input Data Pengguna</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+            {% csrf_token %}
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Bukti Bayar</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="form-check-inline form-check">
+                        <div class="image" style="{width: 300px; height: 150px;}">
+                            <img id="img-bukti" src="{{form.bukti_path.value}}" alt="Bukti Bayar">
+                        </div>
+                        &nbsp;
+                        <input type="file" id="btn-browse" name="btn-browse" class="form-control-file"
+                            class="btn btn-secondary btn-sm">
+                        {{form.bukti_path}}
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="tanggal-lahir" class=" form-control-label">Tanggal bayar</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.tanggal_bayar }}
+                    <small class="help-block form-text">Pilih tanggal bayar yang sesuai.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">No. Rekening Pemesan</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.rek_pemesan }}
+                    <small class="form-text text-muted">Tuliskan No. Rekening Bank pemesan dengan lengkap.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Nama Bank Pemesan</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.bank_pemesan }}
+                    <small class="form-text text-muted">Tuliskan nama Bank pemesan dengan lengkap.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Nama Pemilik Rekening</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.an_pemesan }}
+                    <small class="form-text text-muted">Tuliskan nama pemilik rekening bank.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">No. Rekening Tujuan</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.rek_tujuan }}
+                    <small class="form-text text-muted">Tuliskan nomor rekening bank dengan lengkap.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Nama Bank tujuan</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.bank_tujuan }}
+                    <small class="form-text text-muted">Tuliskan nama bank tujuan dengan lengkap.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Jumlah Pembayaran (Rp)</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.jumlah }}
+                    <small class="form-text text-muted">Tuliskan nama bank tujuan dengan lengkap.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Email Pemesan</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.email }}
+                    <small class="form-text text-muted">Tuliskan alamat email pemesan.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Daftar Paket</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.paket_terapi }}
+                    <small class="form-text text-muted">Pilih salah satu Paket Terapi.</small>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Status Pemesanan</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.status }}
+                    <small class="form-text text-muted">Pilih salah satu status Pemesanan.</small>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Simpan
+                </button>
+                <a class="btn btn-success btn-sm" href="/order" role="button">
+                    <i class="fa fa-ban"></i> Batal
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

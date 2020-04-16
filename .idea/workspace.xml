@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="46a7dd57-a165-4953-9abb-a4499899a0e6" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1YKggWt4ZssQx28HDKSelnU32FT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="hypnoAppStaff" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="hypnoAppStaff" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46a7dd57-a165-4953-9abb-a4499899a0e6" name="Default Changelist" comment="" />
+      <created>1582696811070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582696811070</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="447" y="128" width="515" height="549" key="EnvironmentVariablesDialog" timestamp="1582696935355">
+      <screen x="54" y="27" width="1312" height="741" />
+    </state>
+    <state x="447" y="128" width="515" height="549" key="EnvironmentVariablesDialog/54.27.1312.741@54.27.1312.741" timestamp="1582696935355" />
+    <state x="488" y="160" width="424" height="491" key="FileChooserDialogImpl" timestamp="1582697007435">
+      <screen x="54" y="27" width="1312" height="741" />
+    </state>
+    <state x="488" y="160" width="424" height="491" key="FileChooserDialogImpl/54.27.1312.741@54.27.1312.741" timestamp="1582697007435" />
+    <state x="199" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1584221141798">
+      <screen x="54" y="27" width="1312" height="741" />
+    </state>
+    <state x="199" y="31" width="1022" height="737" key="SettingsEditor/54.27.1312.741@54.27.1312.741" timestamp="1584221141798" />
+    <state x="368" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1584964575181">
+      <screen x="54" y="27" width="1312" height="741" />
+    </state>
+    <state x="368" y="225" key="com.intellij.ide.util.TipDialog/54.27.1312.741@54.27.1312.741" timestamp="1584964575181" />
+    <state x="0" y="27" width="704" height="741" key="find.popup" timestamp="1582697171545">
+      <screen x="54" y="27" width="1312" height="741" />
+    </state>
+    <state x="0" y="27" width="704" height="741" key="find.popup/54.27.1312.741@54.27.1312.741" timestamp="1582697171545" />
+    <state x="373" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1584964776673">
+      <screen x="54" y="27" width="1312" height="741" />
+    </state>
+    <state x="373" y="89" width="672" height="678" key="search.everywhere.popup/54.27.1312.741@54.27.1312.741" timestamp="1584964776673" />
+  </component>
+</project>

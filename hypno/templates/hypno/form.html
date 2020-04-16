@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block script %}
+<script>
+    {% include "hypno/form.js" %}
+</script>
+{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="card">
+    <div class="card-header">
+        <strong>Input Data Paket Hypno Therapy</strong>
+    </div>
+    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="card-body card-block">
+            {% csrf_token %}
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Nama</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.nama }}
+                    <small class="form-text text-muted">Tuliskan Nama Paket Hypno Therapy.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-deskripsi" class=" form-control-label">Deskripsi</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.deskripsi }}
+                    <small class="help-block form-text">Tuliskan deskripsi Paket Hypno Therapy.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-harga" class=" form-control-label">Harga (Rp)</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.harga }}
+                    <small class="help-block form-text">Tuliskan harga Paket Hypno Therapy</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-harga" class=" form-control-label">Mulai</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.mulai }}
+                    <small class="help-block form-text">Tentukan tanggal mulai Paket berjalan.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-harga" class=" form-control-label">Sampai</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.akhir }}
+                    <small class="help-block form-text">Tentukan tanggal mulai Paket berakhir.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="aktif" class=" form-control-label">Aktif</label>
+                </div>
+                <div class="col col-md-9">
+                    {{ form.aktif }}
+                    <small class="help-block form-text">Pilih salah satu status aktif.</small>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fa fa-dot-circle-o"></i> Simpan
+            </button>
+            <a class="btn btn-success btn-sm" href="/hypno/" role="button">
+                <i class="fa fa-ban"></i> Batal
+            </a>
+        </div>
+    </form>
+
+    {% endblock %}

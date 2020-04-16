@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <strong>Pencarian Paket Hypno Therapy</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-horizontal">
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-id" class=" form-control-label">ID</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-id" name="hf-id" placeholder="Tuliskan ID..." class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-nama" class=" form-control-label">Nama</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-nama" name="hf-nama" placeholder="Tuliskan Nama Paket Hypno Therapy..."
+                        class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-konten" class=" form-control-label">Deskripsi</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-deskripsi" name="hf-deskripsi" placeholder="Tuliskan deskripsi Paket..."
+                        class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-tanggal-mulai" class=" form-control-label">Dari</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="date" id="hf-tanggal-mulai" name="hf-tanggal-mulai"
+                        placeholder="Pilih tanggal yang mulai yang sesuai..." class="form-control">
+                </div>
+            </div>akun
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-tanggal-akhir" class=" form-control-label">Sampai</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="date" id="hf-tanggal-akhir" name="hf-tanggal-akhir"
+                        placeholder="Pilih tanggal yang akhir yang sesuai..." class="form-control">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-search"></i> Cari
+        </button>
+        <button type="reset" class="btn btn-danger btn-sm">
+            <i class="fa fa-ban"></i> Batal
+        </button>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <strong>Daftar Paket Hypno Therapy</strong>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary btn-sm" href="/hypno/add" role="button">
+            <i class="zmdi zmdi-plus"></i>Tambah
+        </a>
+    </div>
+    <div class="card-body card-block">
+        <div class="row form-group">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-data3">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama</th>
+                            <th>Harga</th>
+                            <th>Masa Aktif</th>
+                            <th>Aktif</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for pk in paket %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ pk.nama }}</td>
+                            <td>{{ pk.harga }}</td>
+                            <td>{{ pk.mulai }}&nbsp;s/d&nbsp;{{ pk.akhir }}</td>
+                            <td>
+                                {% if pk.aktif %}
+                                Ya
+                                {% else %}
+                                Tidak
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a class="btn btn-success btn-sm" href="/hypno/upload/{{ pk.id }}" role="button"><i
+                                        class="fa fa-upload"></i>&nbsp;Audio</a>
+                                <a class="btn btn-warning btn-sm" href="/hypno/edit/{{ pk.id }}" role="button">Ubah</a>
+                                <a class="btn btn-danger btn-sm" href="/hypno/delete/{{ pk.id }}"
+                                    role="button">Hapus</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary btn-sm" href="/hypno/add" role="button">
+            <i class="zmdi zmdi-plus"></i>Tambah
+        </a>
+    </div>
+</div>
+{% endblock %}

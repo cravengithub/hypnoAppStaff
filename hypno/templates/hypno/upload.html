@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block script %}
+<script>
+
+</script>
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class="card">
+    <div class="card-header">
+        <h3>Input File Audio Hypnotherapy</h3>
+    </div>
+    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <div class="card-body card-block">
+            {% csrf_token %}
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Nama</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.nama }}
+                    <small class="form-text text-muted">Tuliskan Nama audio Hypnotherapy.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-deskripsi" class=" form-control-label">Keterangan</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.keterangan }}
+                    <small class="help-block form-text">Tuliskan keterangan Audio Hypnotherapy.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-audio" class=" form-control-label">File Audio Therapy</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="form-check-inline form-check">
+                        <!-- <input type="file" id="hf-audio" name="hf-audio" class="form-control-file"
+                            class="btn btn-secondary btn-sm"> -->
+                        {{ form.file }}
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-upload"></i> Unggah
+                </button>
+                <a class="btn btn-success btn-sm" href="/hypno/" role="button">
+                    <i class="fa fa-ban"></i> Batal
+                </a>
+            </div>
+    </form>
+    <div class="card">
+        <div class="card-header">
+            <h3>Daftar Audio Hypnotherapy</h3>
+            <strong>Paket {{ paket.nama }}</strong>
+        </div>
+        <div class="card-body card-block">
+            <div class="row form-group">
+                <div class="table-responsive m-b-40">
+                    <table class="table table-borderless table-data3">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama</th>
+                                <th>Keterangan</th>
+                                <th>Audio</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for au in audio %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ au.nama }}</td>
+                                <td>{{ au.keterangan }}</td>
+                                <td>
+                                    <!-- <a href="{% static "audio" %}/{{au.filename}}" class=" btn btn-success btn-sm">
+                                        <i class="fa fa-play"></i>&nbsp;Putar
+                                    </a> -->
+                                    <audio controls>
+                                        <source src="{% static "audio" %}/{{au.filename}}" type="audio/mpeg">
+                                    </audio>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm"
+                                        href="/hypno/delete_audio/{{ paket.id }}/{{ au.id }}" role="button">Hapus</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <strong>Pencarian Pemesan</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-nama" class=" form-control-label">Nama</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-nama" name="hf-nama" placeholder="Tuliskan Nama..." class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-email" class=" form-control-label">Email</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-email" name="hf-email" placeholder="Tuliskan Email..."
+                        class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-status" class=" form-control-label">Status</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <select name="hf-status" id="hf-status" class="form-control">
+                        <option value="0">Pilih salah satu</option>
+                        <option value="pesan">PESAN</option>
+                        <option value="konfirmasi">KONFIRMASI</option>
+                        <option value="aktif">AKTIF</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-paket" class=" form-control-label">Paket Terapi</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <select name="hf-paket" id="hf-paket" class="form-control">
+                        <option value="0">Pilih salah satu</option>
+                        {% for pk in paket %}
+                        <option value="{{ pk.id }}">{{pk.nama}}</option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-search"></i> Cari
+        </button>
+        <button type="reset" class="btn btn-danger btn-sm">
+            <i class="fa fa-ban"></i> Batal
+        </button>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <strong>Daftar Pemesan</strong>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary btn-sm" href="/order/add" role="button">
+            <i class="zmdi zmdi-plus"></i>Tambah
+        </a>
+    </div>
+    <div class="card-body card-block">
+        <div class="row form-group">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-data3">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Paket</th>
+                            <th>Pelanggan</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for or in order %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ or.paket_terapi.nama }}</td>
+                            <td>{{ or.member.nama }}</td>
+                            <td>{{ or.status }}</td>
+                            <td>{{ or.email }}</td>
+                            <td>
+                                <a class="btn btn-warning btn-sm" href="/order/edit/{{ or.id }}" role="button">Ubah</a>
+                                <a class="btn btn-danger btn-sm" href="/order/delete/{{ or.id }}"
+                                    role="button">Hapus</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary btn-sm" href="/order/add" role="button">
+            <i class="zmdi zmdi-plus"></i>Tambah
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block script %}
+<script>
+    {% include "artikel/form.js" %}
+</script>
+{% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="card">
+    <div class="card-header">
+        <strong>Input Data Artikel</strong>
+    </div>
+    {% if messages %}
+    <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+        <span class="badge badge-pill badge-danger">Error</span>
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                {{ message }}
+                </li>
+                {% endfor %}
+        </ul>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    {% endif %}
+    <div class="card-body card-block">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+            {% csrf_token %}
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Ikon</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="form-check-inline form-check">
+                        <div id="ikon-div" class="image">
+                            <img id="img-ikon" style="width: 150px; height: 150px;" src="{{ form.ikon_src.value }}"
+                                alt="Logo Artikel">
+                        </div>
+                        &nbsp;
+                        <input type="file" id="ikon" name="ikon" class="form-control-file"
+                            class="btn btn-secondary btn-sm" />
+                        {{form.ikon_src}}
+                        <!-- <button type="submit" class="btn btn-secondary btn-sm">
+                            <i class="zmdi zmdi-cloud-upload"></i> Unggah
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-judul" class=" form-control-label">Judul</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.judul }}
+                    <small class="form-text text-muted">Tuliskan judul artikel.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="penulis" class=" form-control-label">Penulis</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{ form.penulis }}
+                    <small class="form-text text-muted">Tuliskan Nama Penulis.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-konten" class=" form-control-label">Konten</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    {{form.konten}}
+                    <small class="help-block form-text">Tuliskan isi artikel dengan jelas.</small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="aktif" class=" form-control-label">Aktif</label>
+                </div>
+                <div class="col col-md-9">
+                    <div class="form-check-inline form-check">
+                        {{ form.aktif }}
+                    </div>
+                    <small class="help-block form-text">Pilih salah satu status aktif.</small>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Simpan
+                </button>
+                <a class="btn btn-success btn-sm" href="/artikel" role="button">
+                    <i class="fa fa-ban"></i> Batal
+                </a>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

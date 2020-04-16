@@ -1,0 +1,41 @@
+{% load static %}
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="#">
+            <img src="{% static "images/icon/logo-dashboard.png" %}" alt="Cool Admin" />
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+
+                <li {%if view == 'beranda' %}class='active' {%endif%}>
+                    <a href="/beranda">
+                        <i class="fas fa-home"></i>Beranda</a>
+                </li>
+                <li {%if view == 'akun' %}class='active' {%endif%}>
+                    <a href="/akun">
+                        <i class="fas fa-user"></i>Member</a>
+                </li>
+                <li {%if view == 'artikel' %}class='active' {%endif%}>
+                    <a href="/artikel">
+                        <i class="fas fa-book"></i>Artikel dan Komentar</a>
+                </li>
+                <li {%if view == 'hypno' %}class='active' {%endif%}>
+                    <a href="/hypno/">
+                        <i class="fas fa-leaf"></i>Hypnotherapy</a>
+                </li>
+                <li {%if view == 'order' %}class='active' {%endif%}>
+                    <a href="/order/">
+                        <i class="fas fa-shopping-cart"></i>Pemesanan</a>
+                </li>
+                <li>
+                    <a href="/login/out">
+                        <i class="fas fa-power-off"></i>Keluar</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->

@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block script %}
+<script>
+    {% include "artikel/index.js" %}
+</script>
+{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <strong>Pencarian Artikel</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-horizontal">
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-id" class=" form-control-label">ID</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-id" name="hf-id" placeholder="Tuliskan ID..." class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-judul" class=" form-control-label">Judul</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-judul" name="hf-judul" placeholder="Tuliskan judul artikel..."
+                        class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-konten" class=" form-control-label">Konten</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="text" id="hf-konten" name="hf-konten" placeholder="Tuliskan deskripsi artikel..."
+                        class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-tanggal-mulai" class=" form-control-label">Dari</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="date" id="hf-tanggal-mulai" name="hf-tanggal-mulai"
+                        placeholder="Pilih tanggal yang mulai yang sesuai..." class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-tanggal-akhir" class=" form-control-label">Sampai</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="date" id="hf-tanggal-akhir" name="hf-tanggal-akhir"
+                        placeholder="Pilih tanggal yang akhir yang sesuai..." class="form-control">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-search"></i> Cari
+        </button>
+        <button type="reset" class="btn btn-danger btn-sm">
+            <i class="fa fa-ban"></i> Batal
+        </button>
+    </div>
+</div>
+{% if messages %}
+<div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+    <span class="badge badge-pill badge-success">Success</span>
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+            </li>
+            {% endfor %}
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+{% endif %}
+<div class="card">
+    <div class="card-header">
+        <strong>Daftar Artikel</strong>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary btn-sm" href="/artikel/add" role="button">
+            <i class="zmdi zmdi-plus"></i>Tambah
+        </a>
+    </div>
+    <div class="card-body card-block">
+        <div class="row form-group">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-data3">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Judul</th>
+                            <th>Ringkasan</th>
+                            <th>Publikasi</th>
+                            <th>Aktif</th>
+                            <th colspan="3">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ar in artikel %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ ar.judul }}</td>
+                            <td>
+                                {% autoescape off %}
+                                {{ ar.konten|slice:"100" }}...
+                                {% endautoescape %}
+                            </td>
+                            <td>{{ ar.publikasi }} </td>
+                            <td>
+                                {% if ar.aktif %}
+                                Ya
+                                {% else %}
+                                Tidak
+                                {% endif%}
+                            </td>
+                            <td>
+                                <a class="btn btn-info btn-sm" href="/artikel/detail/{{ ar.id }}"
+                                    role="button">Detail</a>
+                                <a class="btn btn-warning btn-sm" href="/artikel/edit/{{ ar.id }}"
+                                    role="button">Ubah</a>
+                                <!-- <a class="btn btn-danger btn-sm" href="/artikel/delete/{{ ar.id }}"
+                                    role="button">Hapus</a> -->
+                                <button type="button" class="btn btn-danger btn-sm" id="btn-delete-{{ar.id}}"
+                                    data-toggle="modal" data-target="#deletemodal">
+                                    Hapus
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-primary btn-sm" href="/artikel/add" role="button">
+            <i class="zmdi zmdi-plus"></i>Tambah
+        </a>
+    </div>
+</div>
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel"
+    style="display: none;" aria-hidden="true">
+    <input type="hidden" id="tmp-id" name="tmp-id" value="" />
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="smallmodalLabel">Perhatian</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Apakah Anda ingin menghapus data ini?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button id="btn-ok" type="button" class="btn btn-danger">Ya</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

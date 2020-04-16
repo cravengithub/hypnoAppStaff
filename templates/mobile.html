@@ -1,0 +1,47 @@
+{% load static %}
+<header class="header-mobile d-block d-lg-none">
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
+                <a class="logo" href="index.html">
+                    <img src="{% static "images/icon/logo-mobile.png" %}" alt="HypnoApp" />
+                </a>
+                <button class="hamburger hamburger--slider" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li>
+                    <a href="/beranda">
+                        <i class="fas fa-home"></i>Beranda</a>
+                </li>
+                <li>
+                    <a href="/akun">
+                        <i class="fas fa-user"></i>Member</a>
+                </li>
+                <li>
+                    <a href="/artikel">
+                        <i class="fas fa-book"></i>Aritkel dan Komentar</a>
+                </li>
+                <li>
+                    <a href="/hypno/">
+                        <i class="fas fa-leaf"></i>Hypnotherapy</a>
+                </li>
+                <li>
+                    <a href="/order/">
+                        <i class="fas fa-shopping-cart"></i>Pemesanan</a>
+                </li>
+                <li>
+                    <a href="/login/out">
+                        <i class="fas fa-power-off"></i>Keluar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,16 @@
+{% extends "login/index.html" %}
+{% block content %}
+<div class="login-form">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Email Address</label>
+            <input class="au-input au-input--full" type="text" name="email" placeholder="Email/Username">
+        </div>
+        <button class="au-btn au-btn--block btn-warning m-b-20" type="submit">Submit</button>
+        <a href="/login" class="au-btn au-btn--block au-btn--green m-b-20">
+            <center>Kembali</center>
+        </a>
+    </form>
+</div>
+{% endblock %}

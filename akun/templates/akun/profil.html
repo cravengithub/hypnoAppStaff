@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class="card">
+    <div class="card-header">
+        <strong>Profil Data Pengguna</strong>
+    </div>
+    <div class="card-body card-block">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-nama" class=" form-control-label">Foto</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="form-check-inline form-check">
+                        <div class="image">
+                            <img src="{{akun.foto_src}}" alt="John Doe">
+                        </div>
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-nama" class=" form-control-label">Nama Lengkap</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-capitalize">{{ akun.nama }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-kota" class=" form-control-label">Kota Domisili</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-capitalize">{{ akun.kota_domisili }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-alamat" class=" form-control-label">Alamat</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-capitalize">{{ akun.alamat }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label class=" form-control-label">Jenis Kelamin</label>
+                </div>
+                <div class="col col-md-9">
+                    <i class="text-capitalize">
+                        {% if akun.jenis_kelamin %}
+                        Laki-laki
+                        {% else %}
+                        Perempuan
+                        {% endif %}
+                    </i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-tanggal-lahir" class=" form-control-label">Tanggal lahir</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-capitalize">{{ akun.tanggal_lahir }}</i>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-tempat-lahir" class=" form-control-label">Tempat Lahir</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-capitalize">{{ akun.tempat_lahir }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-email" class=" form-control-label">Email</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-lowercase">{{ akun.email }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-no-telepon" class=" form-control-label">No. Telepon/HP</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-info">{{ akun.no_telepon }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-no-telepon" class=" form-control-label">Tanggal Registrasi</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-info">{{ akun.registrasi }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-no-telepon" class=" form-control-label">Status</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-info">{{ akun.status }}</i>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="hf-no-telepon" class=" form-control-label">Aktif</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <i class="text-info">
+                        {% if akun.aktif %}
+                        Ya
+                        {% else %}
+                        Tidak
+                        {% endif %}
+                    </i>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-warning btn-sm" href="/akun/edit/{{ akun.id }}" role="button">
+            <i class="zmdi zmdi-edit"></i> Ubah
+        </a>
+        <a class="btn btn-success btn-sm" href="/akun" role="button">
+            <i class="fa fa-ban"></i> Batal
+        </a>
+    </div>
+</div>
+
+{% endblock %}

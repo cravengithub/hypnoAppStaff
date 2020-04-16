@@ -1,0 +1,1 @@
+source /home/craven/software-project/python/django-project/bin/activate
