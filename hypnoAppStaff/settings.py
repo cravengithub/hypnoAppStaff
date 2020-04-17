@@ -25,7 +25,8 @@ SECRET_KEY = 'u8+t-&nyo*22evn29c4ovq8oe&$yko@t#goc_$sy#m2hl3!u@d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['101.50.1.185']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', '101.50.1.185']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -126,11 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-'''
-STATICFILES_DIRS = [
-    # '.','static',
-    os.path.join(BASE_DIR, 'static')
-]'''
+
+# STATICFILES_DIRS = [
+#     # '.','static',
+#     os.path.join(BASE_DIR, 'static')
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Settings for sending email

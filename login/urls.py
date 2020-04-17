@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('out', views.logout, name='logout'),
     path('forget', views.forget, name='forget'),
+    path('reset/<str:code>', views.reset, name='reset'),
 ]
