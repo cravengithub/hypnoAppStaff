@@ -4,6 +4,7 @@ import datetime
 
 
 class PaketTerapiForm(forms.ModelForm):
+    ikon_src = forms.CharField(widget=forms.HiddenInput, required=False)
     nama = forms.CharField()
     deskripsi = forms.CharField(widget=forms.Textarea)
     harga = forms.IntegerField()
@@ -40,7 +41,14 @@ class PaketTerapiForm(forms.ModelForm):
 
     class Meta:
         model = PaketTerapi
-        fields = ['nama', 'deskripsi', 'harga', 'aktif', 'mulai', 'akhir']
+        fields = [
+            'ikon_src',
+            'nama',
+            'deskripsi',
+            'harga',
+            'aktif',
+            'mulai',
+            'akhir']
 
 
 class AudioForm(forms.ModelForm):

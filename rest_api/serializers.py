@@ -11,26 +11,44 @@ class AkunSerializer(serializers.ModelSerializer):
         model = Akun
 
 
+class MemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('id', 'nama', 'foto_src', 'kota_domisili', 'alamat', 'tanggal_lahir',
+                  'jenis_kelamin', 'email', 'tempat_lahir', 'no_telepon')
+        model = Akun
+
+
 class ArtikelSerializer(serializers.ModelSerializer):
-    komentar = serializers.StringRelatedField(many=True)
+    # komentar = serializers.StringRelatedField(many=True)
 
     class Meta:
-        fields = ('id', 'penulis', 'judul', 'konten', 'publikasi', 'komentar')
+        fields = ('id', 'penulis', 'judul', 'konten', 'publikasi', 'ikon_src')
         model = Artikel
 
 
 class KomentarSerializer(serializers.ModelSerializer):
+    member = serializers.StringRelatedField()
+
+    # artikel_id = serializers.PrimaryKeyRelatedField(read_only=True)
+    # member_id = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
-        fields = ('id', 'artikel', 'member', 'konten', 'publikasi')
+        fields = ('id', 'member', 'konten', 'publikasi')
+        # fields ="__all__"
+        model = Komentar
+
+
+class KomentarPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('id', 'member', 'artikel', 'konten')
         model = Komentar
 
 
 class PaketTerapiSerializer(serializers.ModelSerializer):
-    audio = serializers.StringRelatedField(many=True)
+    # audio = serializers.StringRelatedField(many=True)
 
     class Meta:
-        fields = ('id', 'nama', 'deskripsi', 'harga', 'audio')
+        fields = ('id', 'nama', 'deskripsi', 'harga', 'ikon_src')
         model = PaketTerapi
 
 

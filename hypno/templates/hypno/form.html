@@ -2,6 +2,7 @@
 {% block script %}
 <script>
     {% include "hypno/form.js" %}
+
 </script>
 {% endblock %}
 {% block content %}
@@ -14,6 +15,22 @@
     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="card-body card-block">
             {% csrf_token %}
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label for="nama" class=" form-control-label">Ikon</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="form-check-inline form-check">
+                        <div id="ikon-div" class="image">
+                            <img id="img-ikon" style="width: 150px; height: 150px;" src="{{ form.ikon_src.value }}"
+                                 alt="Logo Artikel">
+                        </div> &nbsp;
+                        <input type="file" id="ikon" name="ikon" class="form-control-file"
+                               class="btn btn-secondary btn-sm"/>
+                        {{form.ikon_src}}
+                    </div>
+                </div>
+            </div>
             <div class="row form-group">
                 <div class="col col-md-3">
                     <label for="nama" class=" form-control-label">Nama</label>

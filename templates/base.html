@@ -213,6 +213,14 @@
 
     {% include "footer.html" %}
 </body>
+<script>
+    $(function () {
+        $('#mobile-section').sticky({
+            topSpacing: 0,
+            zIndex: 99999
+        });
+    });
+</script>
 {% block script %}
 {% endblock %}
 

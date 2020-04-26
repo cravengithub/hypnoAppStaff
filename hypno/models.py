@@ -4,6 +4,7 @@ from django.db import models
 
 
 class PaketTerapi(models.Model):
+    ikon_src = models.TextField(null=True)
     nama = models.CharField(max_length=100)
     deskripsi = models.TextField()
     harga = models.IntegerField()
