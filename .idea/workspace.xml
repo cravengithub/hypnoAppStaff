@@ -2,29 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46a7dd57-a165-4953-9abb-a4499899a0e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hypno/migrations/0009_paketterapi_ikon_src.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jquery.sticky.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/akun/migrations/0007_akun_verification_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/akun/migrations/0008_akun_verification.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/akun/migrations/0009_auto_20200426_1841.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/akun/migrations/0010_auto_20200426_1847.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/akun/migrations/0011_auto_20200426_1904.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artikel/templates/artikel/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/artikel/templates/artikel/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/akun/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/akun/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/akun/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/akun/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/akun/templates/akun/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/akun/templates/akun/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/akun/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/akun/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hypno.db" beforeDir="false" afterPath="$PROJECT_DIR$/hypno.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hypno/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/hypno/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hypno/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hypno/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hypno/templates/hypno/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/hypno/templates/hypno/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hypno/templates/hypno/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/hypno/templates/hypno/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hypno/templates/hypno/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/hypno/templates/hypno/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hypnoAppStaff/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/hypnoAppStaff/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirement.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirement.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest_api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_api/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest_api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mobile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mobile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,6 +58,9 @@
         <option name="myModuleName" value="hypnoAppStaff" />
       </console-settings>
     </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -82,21 +91,32 @@
       <screen x="54" y="27" width="1312" height="741" />
     </state>
     <state x="199" y="31" width="1022" height="737" key="SettingsEditor/54.27.1312.741@54.27.1312.741" timestamp="1584221141798" />
-    <state x="368" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1587855457864">
+    <state x="368" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1588028717175">
       <screen x="54" y="27" width="1312" height="741" />
     </state>
-    <state x="368" y="225" key="com.intellij.ide.util.TipDialog/54.27.1312.741@54.27.1312.741" timestamp="1587855457864" />
+    <state x="368" y="225" key="com.intellij.ide.util.TipDialog/54.27.1312.741@54.27.1312.741" timestamp="1588028717175" />
     <state x="54" y="27" width="704" height="741" key="find.popup" timestamp="1587757714728">
       <screen x="54" y="27" width="1312" height="741" />
     </state>
     <state x="54" y="27" width="704" height="741" key="find.popup/54.27.1312.741@54.27.1312.741" timestamp="1587757714728" />
-    <state width="600" height="424" key="javadoc.popup" timestamp="1587868708781">
+    <state width="600" height="424" key="javadoc.popup" timestamp="1588033593753">
       <screen x="54" y="27" width="1312" height="741" />
     </state>
-    <state width="600" height="424" key="javadoc.popup/54.27.1312.741@54.27.1312.741" timestamp="1587868708781" />
-    <state x="373" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1587862527789">
+    <state width="600" height="424" key="javadoc.popup/54.27.1312.741@54.27.1312.741" timestamp="1588033593753" />
+    <state x="373" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1588016498267">
       <screen x="54" y="27" width="1312" height="741" />
     </state>
-    <state x="373" y="89" width="672" height="678" key="search.everywhere.popup/54.27.1312.741@54.27.1312.741" timestamp="1587862527789" />
+    <state x="373" y="89" width="672" height="678" key="search.everywhere.popup/54.27.1312.741@54.27.1312.741" timestamp="1588016498267" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rest_api/views.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

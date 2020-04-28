@@ -55,8 +55,8 @@ def forget(request):
             # base = bs.b64encode(email.encode())
             chiper_id = signing.dumps(str(user.id))
             base = bs.b64encode(chiper_id.encode())
-            # url = 'http://localhost:8000/login/reset/' + base.decode()
-            url = 'http://101.50.1.185/login/reset/' + base.decode()
+            url = 'http://localhost:8120/login/reset/' + base.decode()
+            # url = 'http://101.50.1.185/login/reset/' + base.decode()
             message += url
             # print(str(base))
             back = bs.b64decode(base)

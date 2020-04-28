@@ -7,7 +7,13 @@ from akun.models import Akun
 
 class AkunSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('id', 'email', 'password')
+        fields = ('id', 'email', 'password', 'verification_code', 'nama')
+        model = Akun
+
+
+class VerifikasiAkunSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = ('email', 'verification_code')
         model = Akun
 
 

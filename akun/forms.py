@@ -16,6 +16,8 @@ class AkunForm(forms.ModelForm):
     tempat_lahir = forms.CharField()
     no_telepon = forms.IntegerField(min_value=10)
     status = forms.ChoiceField(widget=forms.Select)
+    verification_code = forms.IntegerField(disabled=True)
+    verification = forms.ChoiceField(widget=forms.Select)
 
     nama.widget.attrs.update({
         'class': 'form-control', 'placeholder': 'Nama lengkap.'
@@ -60,6 +62,10 @@ class AkunForm(forms.ModelForm):
         (True, 'Ya'),
         (False, 'Tidak')
     ]
+    verification.choices = [
+        (True, 'Ya'),
+        (False, 'Tidak')
+    ]
 
     tanggal_lahir.widget.attrs.update({
         'class': 'form-control',
@@ -70,4 +76,4 @@ class AkunForm(forms.ModelForm):
     class Meta:
         model = Akun
         fields = ['nama', 'foto_src', 'kota_domisili', 'alamat', 'tanggal_lahir',
-                  'jenis_kelamin', 'aktif', 'email', 'tempat_lahir', 'no_telepon', 'status']
+                  'jenis_kelamin', 'aktif', 'email', 'tempat_lahir', 'no_telepon', 'status', 'verification_code']

@@ -57,14 +57,16 @@ def edit(request, id):
     form = AkunForm(instance=akun)
     form.fields['jenis_kelamin'].initial = [akun.jenis_kelamin]
     form.fields['aktif'].initial = [akun.aktif]
+    form.fields['verification'].initial = [akun.verification]
     if request.method == 'POST':
         form = AkunForm(request.POST or None, instance=Akun.objects.get(id=id))
         sex_flag = request.POST.get('jenis_kelamin')
         aktif_flag = request.POST.get('aktif')
+        ver_flag = request.POST.get('verification')
         foto = request.POST.get('foto_src')
         # print(foto)
         form.fields['jenis_kelamin'].choices = [(sex_flag, sex_flag)]
-        form.fields['aktif'].choices = [(aktif_flag, aktif_flag)]
+        form.fields['aktif'].choices = [(ver_flag, ver_flag)]
 
         if form.is_valid():
             form.save()

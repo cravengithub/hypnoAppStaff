@@ -78,7 +78,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama</th>
-                            <th>Harga</th>
+                            <th>Harga&nbsp;(Rp)</th>
                             <th>Masa Aktif</th>
                             <th>Aktif</th>
                             <th>Aksi</th>
@@ -89,7 +89,7 @@
                         <tr>
                             <td>{{ forloop.counter }}</td>
                             <td>{{ pk.nama }}</td>
-                            <td>{{ pk.harga }}</td>
+                            <td>{{ pk.harga }},-/bulan</td>
                             <td>{{ pk.mulai }}&nbsp;s/d&nbsp;{{ pk.akhir }}</td>
                             <td>
                                 {% if pk.aktif %}
