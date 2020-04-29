@@ -9,6 +9,7 @@ from akun.models import Akun
 from django.core import signing
 import base64 as bs
 from random import randint
+from django.conf import  settings
 from django.core.mail import send_mail, BadHeaderError
 from django.db.models import Q
 from .serializers import ArtikelSerializer, KomentarSerializer, \
@@ -73,11 +74,14 @@ class AkunAdd(generics.CreateAPIView):
             if serializer.is_valid():
                 serializer.save()
                 recipient = data['email']
-                from_email = 'hypnotherapyapplication@gmail.com'
-                subject = '[NO REPLY] Verifikasi Akun Pengguna'
-                message_html = '''<p>Selamat Anda terlah terdaftar sebagai pengguna <strong>HypnoSession Mobile App</strong>.\n 
-                Selanjutnya, lakukan verifikasi pengguna dengan memasukkan kode sebagai berikut:\n               
-                ''' + '<br/><strong>' + str(code) + '</strong></p>'
+                # from_email = 'hypnotherapyapplication@gmail.com'
+                from_email = settings.EMAIL_HOST_USER
+                # subject = '[NO REPLY] Verifikasi Akun Pengguna'
+                subject = settings.ACCOUNT_VERIFICATION_SUBJECT
+                # message_html = '''<p>Selamat Anda terlah terdaftar sebagai pengguna <strong>HypnoSession Mobile App</strong>.\n
+                # Selanjutnya, lakukan verifikasi pengguna dengan memasukkan kode sebagai berikut:\n
+                # ''' + '<br/><strong>' + str(code) + '</strong></p>'
+                message_html = settings.ACCOUNT_VERIFICATION_MESSAGE + '<strong>' + str(code) + '</strong>'
                 try:
                     send_mail(subject, message_html, from_email, [recipient], html_message=message_html)
                     self.message = 'Kode Verifikasi telah dikirimkan ke email.'
@@ -255,10 +259,13 @@ class ForgetPass(generics.CreateAPIView):
                 # 'verification_code':member.verification_code
             }
             recipient = data['email']
-            from_email = 'hypnotherapyapplication@gmail.com'
-            subject = '[NO REPLY] Reset Password Pengguna'
-            message_html = '''<p>Ini merupakan layanan untuk Reset Password. Selanjutnya, lakukan verifikasi pengguna dengan memasukkan kode sebagai berikut:\n               
-                                ''' + '<br/><strong>' + str(code) + '</strong></p>'
+            # from_email = 'hypnotherapyapplication@gmail.com'
+            from_email = settings.EMAIL_HOST_USER
+            # subject = '[NO REPLY] Kode Reset Password Pengguna'
+            subject = '[NO REPLY] Kode Reset Password Pengguna'
+            # message_html = '''<p>Ini merupakan layanan untuk Reset Password. Selanjutnya, lakukan verifikasi pengguna dengan memasukkan kode sebagai berikut:\n
+            #                     ''' + '<br/><strong>' + str(code) + '</strong></p>'
+            message_html = settings.FORGET_PASSWORD_MESSAGE+'<strong>' + str(code) + '</strong>'
             try:
                 send_mail(subject, message_html, from_email, [recipient], html_message=message_html)
                 self.message = 'Kode Reset Password telah dikirimkan ke email.'
@@ -315,9 +322,12 @@ class ResetPass(generics.CreateAPIView):
             member.password = chiper64.decode()
             member.save()
             recipient = data['email']
-            from_email = 'hypnotherapyapplication@gmail.com'
-            subject = '[NO REPLY] Perubahan Password Pengguna'
-            message_html = 'Proses perubahan Password yang Anda lakukan telah berhasil.'
+            # from_email = 'hypnotherapyapplication@gmail.com'
+            from_email = settings.EMAIL_HOST_USER
+            # subject = '[NO REPLY] Perubahan Password Pengguna'
+            subject = settings.RESET_PASSWORD_MOBILE_SUBJECT
+            # message_html = 'Proses perubahan Password yang Anda lakukan telah berhasil.'
+            message_html = settings.RESET_PASSWORD_MOBILE_MESSAGE
             try:
                 send_mail(subject, message_html, from_email, [recipient], html_message=message_html)
                 self.message = 'Proses perubahan password telah berhasil.'

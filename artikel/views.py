@@ -105,6 +105,14 @@ def delete(request, id):
     return redirect('/artikel')
 
 
+def delete_comment(request, id):
+    comment = Komentar.objects.get(id=id)
+    id_artikel = comment.artikel.id
+    comment.delete()
+    path = '/artikel/detail/'+str(id_artikel)
+    return redirect(path)
+
+
 def comment(request, id):
     comment = Komentar.objects.get(id=id)
     if comment.aktif:

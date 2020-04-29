@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u8+t-&nyo*22evn29c4ovq8oe&$yko@t#goc_$sy#m2hl3!u@d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = False
 DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1', '101.50.1.185']
@@ -131,11 +132,14 @@ STATICFILES_DIRS = [
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Settings for sending email
-DEFAULT_FROM_EMAIL = 'hypnotherapyapplication@gmail.com'
+# DEFAULT_FROM_EMAIL = 'hypnotherapyapplication@gmail.com'
+DEFAULT_FROM_EMAIL = 'info.hypnosession@gmail.com'
 EMAIL_PORT = 465
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'hypnotherapyapplication@gmail.com'
-EMAIL_HOST_PASSWORD = 'hypnopass9'
+# EMAIL_HOST_USER = 'hypnotherapyapplication@gmail.com'
+EMAIL_HOST_USER = 'info.hypnosession@gmail.com'
+# EMAIL_HOST_PASSWORD = 'hypnopass9'
+EMAIL_HOST_PASSWORD = 'admin999hypno'
 EMAIL_USE_SSL = True
 # EMAIL_USE_TLS = True
 
@@ -157,3 +161,20 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 USE_THOUSAND_SEPARATOR = True
+# CURRENT_HOST
+# CURRENT_HOST ='localhost:8000'
+BASE_URL = 'http://101.50.1.185'
+
+# Setting for message
+RESET_PASSWORD_SUBJECT = '[NO REPLY] Konfirmasi Reset Password'
+RESET_PASSWORD_MESSAGE = '''<p>Terima kasih telah menggunakan layanan ini.
+            <br/>Layanan ini digunakan untuk me-reset password apabila pengguna lupa passwordnya.
+            <br/>Berikut ini terdapat alamat url untuk melakukan reset password:<br/><p/>'''
+ACCOUNT_VERIFICATION_SUBJECT = '[NO REPLY] Verifikasi Akun Pengguna'
+ACCOUNT_VERIFICATION_MESSAGE = '''<p>Selamat Anda terlah terdaftar sebagai pengguna <strong>HypnoSession Mobile App</strong>.<br/>
+                Selanjutnya, lakukan verifikasi pengguna dengan memasukkan kode sebagai berikut:<br/></p>'''
+FORGET_PASSWORD_SUBJECT = '[NO REPLY] Kode Reset Password Pengguna'
+FORGET_PASSWORD_MESSAGE = '''<p>Ini merupakan layanan untuk Reset Password. Selanjutnya, lakukan verifikasi pengguna 
+                            <br/>dengan memasukkan kode sebagai berikut:<br/></p>'''
+RESET_PASSWORD_MOBILE_SUBJECT ='[NO REPLY] Perubahan Password Pengguna'
+RESET_PASSWORD_MOBILE_MESSAGE ='Proses perubahan Password yang Anda lakukan telah berhasil.'

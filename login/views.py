@@ -6,7 +6,7 @@ import base64 as bs
 from django.contrib.auth.models import User
 from django.core.mail import send_mail, BadHeaderError
 from django.core import signing
-
+from django.conf import settings
 
 # Create your views here.
 
@@ -47,21 +47,25 @@ def forget(request):
         if user is not None:
             # send mail to recipient
             recipient = user.email
-            from_email = 'hypnotherapyapplication@gmail.com'
-            subject = '[NO REPLY] Konfirmasi Reset Password'
-            message = '''Terima kasih telah menggunakan layanan ini.
-            \nLayanan ini digunakan untuk me-reset password apabila pengguna lupa passwordnya.
-            \nBerikut ini terdapat alamat url untuk melakukan reset password:\n'''
+            # from_email = 'hypnotherapyapplication@gmail.com'
+            from_email = settings.EMAIL_HOST_USER
+            # subject = '[NO REPLY] Konfirmasi Reset Password'
+            subject = settings.RESET_PASSWORD_SUBJECT
+            # message = '''Terima kasih telah menggunakan layanan ini.
+            # \nLayanan ini digunakan untuk me-reset password apabila pengguna lupa passwordnya.
+            # \nBerikut ini terdapat alamat url untuk melakukan reset password:\n'''
+            message = settings.RESET_PASSWORD_MESSAGE
             # base = bs.b64encode(email.encode())
             chiper_id = signing.dumps(str(user.id))
             base = bs.b64encode(chiper_id.encode())
-            url = 'http://localhost:8120/login/reset/' + base.decode()
+            # url = 'http://localhost:8120/login/reset/' + base.decode()
             # url = 'http://101.50.1.185/login/reset/' + base.decode()
+            url = settings.BASE_URL + '/login/reset/' + base.decode()
             message += url
             # print(str(base))
             back = bs.b64decode(base)
             try:
-                send_mail(subject, message, from_email, [recipient])
+                send_mail(subject, message, from_email, [recipient], html_message=message)
                 messages.add_message(request, messages.SUCCESS,
                                      'Verifikasi Reset Password telah dikirimkan ke email.')
             except BadHeaderError:
